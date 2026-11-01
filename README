@@ -1,42 +1,100 @@
-Copyright (c) 2000, 2026, Oracle and/or its affiliates.
+# College Management System
 
-This is a release of MySQL Connector/J, a JDBC Type 4 driver for MySQL that also
-supports the new X DevAPI.
+A desktop-based College Management System developed using **Java Swing, JDBC and MySQL**. The application provides separate administrator and student interfaces to manage and access college records.
 
-License information can be found in the LICENSE file. This distribution may
-include materials developed by third parties. For license and attribution
-notices for these materials, please refer to the LICENSE file.
+## Features
 
-For more information on MySQL Connector/J, visit
-https://dev.mysql.com/doc/connector-j/en/.
+### Administrator Module
+- Admin login and first-admin setup
+- Create and manage administrator accounts
+- Add, view and delete student records
+- Add, view and delete faculty records
+- Manage student attendance
+- Add and view examination results
+- Record and view fee details
 
-For additional downloads and the source of MySQL Connector/J,
-visit https://dev.mysql.com/downloads/.
+### Student Module
+- Student account creation and login
+- View personal profile
+- View attendance records
+- View examination results
+- View fee details
 
-Contributing information for code and non-code submissions can be found in the
-CONTRIBUTING.md file.
+## Technologies Used
 
-MySQL Connector/J is brought to you by the MySQL team at Oracle.
+| Technology | Purpose |
+|---|---|
+| Java | Application logic |
+| Java Swing | Graphical User Interface |
+| JDBC | Database connectivity |
+| MySQL | Data storage |
+| MySQL Connector/J | Java-MySQL integration |
 
-Notice:
-- In order to use the logging capabilities provided by the default
-  implementation com.mysql.cj.log.Slf4JLogger, it is required to add one or more
-  jars for Simple Logging Facade for Java (SLF4J) to your CLASSPATH.
-- To use the X DevAPI features in Connector/J, you also need the external
-  library protobuf-java, which you can download manually from the official Maven
-  repository and add it to the CLASSPATH, or use Maven's automatic dependency
-  resolution features by adding a dependency to "GroupId: com.mysql" and
-  "ArtifactId: mysql-connector-j" to your project's pom.xml file.
-- To use OCI AIM authentication, you will need to add the external library
-  oci-java-sdk-common, which you can download manually from the official Maven
-  repository and add it to the CLASSPATH, or use Maven's automatic dependency
-  resolution features by adding a dependency to "GroupId: com.oracle.oci.sdk"
-  and "ArtifactId: oci-java-sdk-common" to your project's pom.xml file.
-- In order to enable OpenTelemtry native instrumentation, it is required to use
-  the OpenTelemetry libraries opentelemetry-api and opentelemetry-context, and
-  an OpenTelemetry implementation, typically the library opentelemetry-sdk or
-  the Java agent opentelemetry-javaagent, which you can download manually from
-  the official Maven repository and add it to the CLASSPATH, or use Maven's
-  automatic dependency resolution features, by adding a dependency to
-  "GroupId: io.opentelemetry" and the corresponding artifacts to your project's
-  pom.xml file.
+## Project Structure
+
+```text
+College-Management-System/
+│
+├── src/
+│   └── DBConnection.java
+│
+├── lib/
+│   └── mysql-connector-j-26.10.0.jar
+│
+├── out/                 (Generated during compilation)
+├── .gitignore
+├── run.bat
+└── README.md
+```
+
+## Prerequisites
+
+- Java JDK installed
+- MySQL Server installed and running
+- MySQL Connector/J (included in the repository)
+
+## Database Setup
+
+1. Open MySQL.
+2. Create the database:
+
+```sql
+CREATE DATABASE college_management_v2;
+```
+
+3. The application automatically creates the required tables when it connects to the database.
+
+## Configuration
+
+The application reads database credentials from environment variables.
+
+Set the following variables on Windows PowerShell:
+
+```powershell
+$env:DB_USER="your_mysql_username"
+$env:DB_PASSWORD="your_mysql_password"
+```
+
+Replace the placeholder values with your own local MySQL credentials.
+
+## How to Run
+
+1. Clone or download this repository.
+2. Ensure MySQL Server is running.
+3. Configure the database environment variables.
+4. Open the project folder.
+5. Run:
+
+```powershell
+.\run.bat
+```
+
+The script compiles the Java application and launches the College Management System.
+
+## Security Note
+
+This is an academic project. The current implementation stores application login passwords directly in the database. Secure password hashing should be implemented before using the application in a production environment.
+
+## Project Status
+
+Developed as an independent academic project to explore Java desktop application development, JDBC connectivity and relational database management.
